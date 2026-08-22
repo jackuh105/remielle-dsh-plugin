@@ -20,7 +20,7 @@
 
 - **待機行為**：行動間隔隨機（2~6 秒可調）、彩蛋表演（40% 機率可調、8 動作池、可連續）、自由移動（視窗內走動、邊緣反彈）
 - **右鍵選單**：表演動作（8 種）、自由移動開關、隱藏/顯示
-- **設定卡片**：DSH Settings → Plugins 區的「Remielle 桌寵」卡片（可折疊），即時生效
+- **設定子頁面**：DSH Settings 側邊的「Remielle 桌寵」分頁（`settings.section` slot），即時生效
 
 ## 架構
 
@@ -30,7 +30,7 @@ session/event ──▶ server 端 session projection ──▶ browser subscrib
 ```
 
 - **server 端**（`lib/index.js`）：`remielle` session projection（純函式狀態機：`working / waiting / celebrate / failed / idle`）+ 素材 HTTP route（`/plugins/remielle-dsh/assets/`）
-- **client 端**（`lib/client.js`）：命令式 DOM 寵物 widget（掛在 `document.body`）+ React 設定卡片（`settings.plugin.item` slot）
+- **client 端**（`lib/client.js`）：命令式 DOM 寵物 widget（掛在 `document.body`）+ React 設定子頁面（`settings.section` slot）
 - 期待超時、彩蛋節奏等時間性行為在瀏覽器端執行；事件事實由 server 投影提供
 
 ## 安裝
