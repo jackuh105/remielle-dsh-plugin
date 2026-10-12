@@ -33,6 +33,13 @@ session/event ──▶ server 端 session projection ──▶ browser subscrib
 - **client 端**（`lib/client.js`）：命令式 DOM 寵物 widget（掛在 `document.body`）+ React 設定子頁面（`settings.section` slot）
 - 期待超時、彩蛋節奏等時間性行為在瀏覽器端執行；事件事實由 server 投影提供
 
+## DSH 版本相容性
+
+| 插件版本 | 支援的 DSH | 說明 |
+|---|---|---|
+| 0.2.x | `0.2.0-rc.2` 以上 | 主視圖 session 改由 `uiSession` 服務的 `current` binding source 取得（0.2.0 移除了 `sessions.list` 快照的 `current` 欄位）；不再 inject 已移除的 `@deepseek-ai/dsh-client-runtime`；新增 `peerDependencies`，由 DSH 啟動相容性閘門把關 |
+| 0.1.x | `0.1.1-rc.x` | 使用 `sessions.list.current` 與 `dsh-client-runtime`（兩者在 0.2.0 均已移除） |
+
 ## 安裝
 
 本插件以 **DSH bundle 包**形式安裝到 profile：
